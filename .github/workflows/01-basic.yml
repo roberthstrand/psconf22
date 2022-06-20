@@ -11,7 +11,10 @@ jobs:
       - name: 'Print the current version'
         run: $PSVersionTable.PSVersion.ToString()
         shell: pwsh
+  show-powershell-win:
+    name: 'Show PowerShell info, Windows PowerShell'
+    runs-on: 'windows-latest'
+    steps:
       - name: 'Print the current version'
         run: $PSVersionTable.PSVersion.ToString()
-        if: ${{ matrix.os }} == 'windows-latest'
         shell: powershell
