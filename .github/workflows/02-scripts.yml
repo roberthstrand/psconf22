@@ -1,0 +1,26 @@
+name: '02: Running scripts'
+on: 
+  workflow_dispatch:
+    inputs:
+      greeting:
+        description: 'The greeting you wish to use'
+        required: true
+        default: 'Hello'
+        type: choice
+        options:
+        - Hello
+        - Salutations
+        - Waddap
+      subject:
+        description: 'The subject, or subjects, you are greeting.'
+        required: false
+        default: 'World'
+        type: string
+
+jobs:
+  run-script:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: Greet people
+        run: ./pipelinescript.ps1 -Greeting {{ inputs.greeting }} -Name {{ inputs.subject }}
+        shell: pwsh
