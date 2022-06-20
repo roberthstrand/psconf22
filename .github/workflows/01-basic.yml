@@ -9,4 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: $PSVersionTable.PSVersion.ToString()
+        name: 'Print the current version'
         shell: pwsh
+      - run: $PSVersionTable.PSVersion.ToString()
+        if: ${{ matrix.os }} == 'windows-latest'
+        name: 'Print the current version'
+        shell: powershell
