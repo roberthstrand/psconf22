@@ -1,6 +1,7 @@
 name: '01: Basic workflow'
 on: workflow_dispatch
 jobs:
+  # Print version, shows one-line approach
   show-powershell:
     name: 'Show PowerShell info'
     strategy:
@@ -11,6 +12,7 @@ jobs:
       - name: 'Print the current version'
         run: $PSVersionTable.PSVersion.ToString()
         shell: pwsh
+
   show-powershell-win:
     name: 'Show PowerShell info, Windows PowerShell'
     runs-on: 'windows-latest'
@@ -18,3 +20,14 @@ jobs:
       - name: 'Print the current version'
         run: $PSVersionTable.PSVersion.ToString()
         shell: powershell
+
+  inline-script:
+    name: 'Writing scripts inline'
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: 'Multiline PowerShell'
+        shell: pwsh
+        run: |
+          $CurrentTime = Get-Date -Format "HH:MM"
+          Write-Host "You know what time it is?"
+          Write-Host "What a silly thing to ask, it's obviously $CurrentTime"
