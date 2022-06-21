@@ -1,0 +1,12 @@
+name: Dad Jokes
+
+on: [workflow_call]
+
+jobs:
+  fetch-joke:
+    name: Using the power of RESTful API to tell a silly joke
+    runs-on: ubuntu-latest
+    steps:
+    - uses: ./.github/workflows/jokes.yml
+      run: Invoke-RestMethod -Uri https://icanhazdadjoke.com/ -Headers @{"Accept" = "application/json"} | Select-Object -ExpandProperty joke
+      shell: pwsh
