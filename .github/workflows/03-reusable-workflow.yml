@@ -3,11 +3,9 @@ name: '03: Reusable workflow'
 on: [workflow_dispatch]
 
 jobs:
-  example_job:
+  use_example_two_workflow:
+    uses: ./.github/workflows/02-scripts.yml
+    with:
+      greeting: 'Salutations'
+      subject: 'PSConf EU 2022'
     name: Run the second example workflow
-    runs-on: ubuntu-latest
-    steps:
-      - uses: ./.github/workflows/02-scripts.yml
-        with:
-          greeting: 'Salutations'
-          subject: 'PSConf EU 2022'
