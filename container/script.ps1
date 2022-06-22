@@ -1,0 +1,1 @@
+Invoke-RestMethod -Uri https://icanhazdadjoke.com/ -Headers @{"Accept" = "application/json"} | Select-Object -ExpandProperty joke
