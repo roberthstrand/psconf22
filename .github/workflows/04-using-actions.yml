@@ -1,0 +1,12 @@
+name: '04: Using actions'
+
+on: [workflow_dispatch]
+
+jobs:
+  use-composite-action:
+    runs-on: ubuntu-latest
+    name: action-demo
+    steps:
+
+    - name: Chuck Norris
+      uses: roberthstrand/demo-action@v1.0.0
