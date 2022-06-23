@@ -8,5 +8,5 @@ jobs:
     name: action-demo
     steps:
 
-    - name: Chuck Norris
+    - name: 'Did you know?'
       uses: roberthstrand/demo-action@v1.0.0
